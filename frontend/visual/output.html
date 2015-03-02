@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>deFUME</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+<script src="http://d3js.org/d3.v2.min.js"></script>
+<script>
+    /* Modernizr 2.8.3 (Custom Build) | MIT & BSD
+     * Build: http://modernizr.com/download/#-canvas-canvastext-inputtypes-shiv-cssclasses-load
+     */
+    window.Modernizr=function(a,b,c){function v(a){j.cssText=a}function w(a,b){return v(prefixes.join(a+";")+(b||""))}function x(a,b){return typeof a===b}function y(a,b){return!!~(""+a).indexOf(b)}function z(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:x(f,"function")?f.bind(d||b):f}return!1}function A(){e.inputtypes=function(a){for(var d=0,e,f,h,i=a.length;d<i;d++)k.setAttribute("type",f=a[d]),e=k.type!=="text",e&&(k.value=l,k.style.cssText="position:absolute;visibility:hidden;",/^range$/.test(f)&&k.style.WebkitAppearance!==c?(g.appendChild(k),h=b.defaultView,e=h.getComputedStyle&&h.getComputedStyle(k,null).WebkitAppearance!=="textfield"&&k.offsetHeight!==0,g.removeChild(k)):/^(search|tel)$/.test(f)||(/^(url|email)$/.test(f)?e=k.checkValidity&&k.checkValidity()===!1:e=k.value!=l)),o[a[d]]=!!e;return o}("search tel url email datetime date month week time datetime-local number range color".split(" "))}var d="2.8.3",e={},f=!0,g=b.documentElement,h="modernizr",i=b.createElement(h),j=i.style,k=b.createElement("input"),l=":)",m={}.toString,n={},o={},p={},q=[],r=q.slice,s,t={}.hasOwnProperty,u;!x(t,"undefined")&&!x(t.call,"undefined")?u=function(a,b){return t.call(a,b)}:u=function(a,b){return b in a&&x(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=this;if(typeof c!="function")throw new TypeError;var d=r.call(arguments,1),e=function(){if(this instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(r.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(r.call(arguments)))};return e}),n.canvas=function(){var a=b.createElement("canvas");return!!a.getContext&&!!a.getContext("2d")},n.canvastext=function(){return!!e.canvas&&!!x(b.createElement("canvas").getContext("2d").fillText,"function")};for(var B in n)u(n,B)&&(s=B.toLowerCase(),e[s]=n[B](),q.push((e[s]?"":"no-")+s));return e.input||A(),e.addTest=function(a,b){if(typeof a=="object")for(var d in a)u(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,typeof f!="undefined"&&f&&(g.className+=" "+(b?"":"no-")+a),e[a]=b}return e},v(""),i=k=null,function(a,b){function l(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function m(){var a=s.elements;return typeof a=="string"?a.split(" "):a}function n(a){var b=j[a[h]];return b||(b={},i++,a[h]=i,j[i]=b),b}function o(a,c,d){c||(c=b);if(k)return c.createElement(a);d||(d=n(c));var g;return d.cache[a]?g=d.cache[a].cloneNode():f.test(a)?g=(d.cache[a]=d.createElem(a)).cloneNode():g=d.createElem(a),g.canHaveChildren&&!e.test(a)&&!g.tagUrn?d.frag.appendChild(g):g}function p(a,c){a||(a=b);if(k)return a.createDocumentFragment();c=c||n(a);var d=c.frag.cloneNode(),e=0,f=m(),g=f.length;for(;e<g;e++)d.createElement(f[e]);return d}function q(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return s.shivMethods?o(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+m().join().replace(/[\w\-]+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(s,b.frag)}function r(a){a||(a=b);var c=n(a);return s.shivCSS&&!g&&!c.hasCSS&&(c.hasCSS=!!l(a,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),k||q(a,c),a}var c="3.7.0",d=a.html5||{},e=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,f=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,g,h="_html5shiv",i=0,j={},k;(function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",g="hidden"in a,k=a.childNodes.length==1||function(){b.createElement("a");var a=b.createDocumentFragment();return typeof a.cloneNode=="undefined"||typeof a.createDocumentFragment=="undefined"||typeof a.createElement=="undefined"}()}catch(c){g=!0,k=!0}})();var s={elements:d.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video",version:c,shivCSS:d.shivCSS!==!1,supportsUnknownElements:k,shivMethods:d.shivMethods!==!1,type:"default",shivDocument:r,createElement:o,createDocumentFragment:p};a.html5=s,r(b)}(this,b),e._version=d,g.className=g.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(f?" js "+q.join(" "):""),e}(this,this.document),function(a,b,c){function d(a){return"[object Function]"==o.call(a)}function e(a){return"string"==typeof a}function f(){}function g(a){return!a||"loaded"==a||"complete"==a||"uninitialized"==a}function h(){var a=p.shift();q=1,a?a.t?m(function(){("c"==a.t?B.injectCss:B.injectJs)(a.s,0,a.a,a.x,a.e,1)},0):(a(),h()):q=0}function i(a,c,d,e,f,i,j){function k(b){if(!o&&g(l.readyState)&&(u.r=o=1,!q&&h(),l.onload=l.onreadystatechange=null,b)){"img"!=a&&m(function(){t.removeChild(l)},50);for(var d in y[c])y[c].hasOwnProperty(d)&&y[c][d].onload()}}var j=j||B.errorTimeout,l=b.createElement(a),o=0,r=0,u={t:d,s:c,e:f,a:i,x:j};1===y[c]&&(r=1,y[c]=[]),"object"==a?l.data=c:(l.src=c,l.type=a),l.width=l.height="0",l.onerror=l.onload=l.onreadystatechange=function(){k.call(this,r)},p.splice(e,0,u),"img"!=a&&(r||2===y[c]?(t.insertBefore(l,s?null:n),m(k,j)):y[c].push(l))}function j(a,b,c,d,f){return q=0,b=b||"j",e(a)?i("c"==b?v:u,a,b,this.i++,c,d,f):(p.splice(this.i++,0,a),1==p.length&&h()),this}function k(){var a=B;return a.loader={load:j,i:0},a}var l=b.documentElement,m=a.setTimeout,n=b.getElementsByTagName("script")[0],o={}.toString,p=[],q=0,r="MozAppearance"in l.style,s=r&&!!b.createRange().compareNode,t=s?l:n.parentNode,l=a.opera&&"[object Opera]"==o.call(a.opera),l=!!b.attachEvent&&!l,u=r?"object":l?"script":"img",v=l?"script":u,w=Array.isArray||function(a){return"[object Array]"==o.call(a)},x=[],y={},z={timeout:function(a,b){return b.length&&(a.timeout=b[0]),a}},A,B;B=function(a){function b(a){var a=a.split("!"),b=x.length,c=a.pop(),d=a.length,c={url:c,origUrl:c,prefixes:a},e,f,g;for(f=0;f<d;f++)g=a[f].split("="),(e=z[g.shift()])&&(c=e(c,g));for(f=0;f<b;f++)c=x[f](c);return c}function g(a,e,f,g,h){var i=b(a),j=i.autoCallback;i.url.split(".").pop().split("?").shift(),i.bypass||(e&&(e=d(e)?e:e[a]||e[g]||e[a.split("/").pop().split("?")[0]]),i.instead?i.instead(a,e,f,g,h):(y[i.url]?i.noexec=!0:y[i.url]=1,f.load(i.url,i.forceCSS||!i.forceJS&&"css"==i.url.split(".").pop().split("?").shift()?"c":c,i.noexec,i.attrs,i.timeout),(d(e)||d(j))&&f.load(function(){k(),e&&e(i.origUrl,h,g),j&&j(i.origUrl,h,g),y[i.url]=2})))}function h(a,b){function c(a,c){if(a){if(e(a))c||(j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}),g(a,j,b,0,h);else if(Object(a)===a)for(n in m=function(){var b=0,c;for(c in a)a.hasOwnProperty(c)&&b++;return b}(),a)a.hasOwnProperty(n)&&(!c&&!--m&&(d(j)?j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}:j[n]=function(a){return function(){var b=[].slice.call(arguments);a&&a.apply(this,b),l()}}(k[n])),g(a[n],j,b,n,h))}else!c&&l()}var h=!!a.test,i=a.load||a.both,j=a.callback||f,k=j,l=a.complete||f,m,n;c(h?a.yep:a.nope,!!i),i&&c(i)}var i,j,l=this.yepnope.loader;if(e(a))g(a,0,l,0);else if(w(a))for(i=0;i<a.length;i++)j=a[i],e(j)?g(j,0,l,0):w(j)?B(j):Object(j)===j&&h(j,l);else Object(a)===a&&h(a,l)},B.addPrefix=function(a,b){z[a]=b},B.addFilter=function(a){x.push(a)},B.errorTimeout=1e4,null==b.readyState&&b.addEventListener&&(b.readyState="loading",b.addEventListener("DOMContentLoaded",A=function(){b.removeEventListener("DOMContentLoaded",A,0),b.readyState="complete"},0)),a.yepnope=k(),a.yepnope.executeStack=h,a.yepnope.injectJs=function(a,c,d,e,i,j){var k=b.createElement("script"),l,o,e=e||B.errorTimeout;k.src=a;for(o in d)k.setAttribute(o,d[o]);c=j?h:c||f,k.onreadystatechange=k.onload=function(){!l&&g(k.readyState)&&(l=1,c(),k.onload=k.onreadystatechange=null)},m(function(){l||(l=1,c(1))},e),i?k.onload():n.parentNode.insertBefore(k,n)},a.yepnope.injectCss=function(a,c,d,e,g,i){var e=b.createElement("link"),j,c=i?h:c||f;e.href=a,e.rel="stylesheet",e.type="text/css";for(j in d)e.setAttribute(j,d[j]);g||(n.parentNode.insertBefore(e,n),m(c,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))};
+</script>
+
+<style type="text/css">
+    html, body {
+        font-size: 75%;
+    }
+
+    #fixedContainer {
+        background: -webkit-linear-gradient(top, #f9f9f9, #f5f5f5); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(top, #f9f9f9, #f5f5f5); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(top, #f9f9f9, #f5f5f5); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(top, #f9f9f9, #f5f5f5); /* Standard syntax */
+        position: fixed;
+        width: 250px;
+        height: 650px;
+        left: 10px;
+        top: 10px;
+
+
+        font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+        font-size: 1.1em;
+
+    }
+
+    #deFUMEtable{
+        position: absolute;
+
+        left: 270px;
+        top: 10px;
+        width: 100%;
+        height: 100%;
+        overflow-x: scroll;
+        overflow-y: scroll;
+
+
+
+    }
+
+
+
+    #list td[aria-describedby="list_readrow"] {
+        font-size: 10px;
+        line-height: 10px;
+        vertical-align: top
+    }
+    .evalbox {
+        width: 90px;
+    }
+    #MF rect:hover, #CC rect:hover, #BP rect:hover {
+        fill: #64707D;
+    }
+
+</style>
+
+<script type="text/javascript">
+
+///These modules check the availability of the necessary functions. Unfortunately there is nothing we can do to get deFUME running without these in-browser functions. The only way is to update the browser.
+    if (!Modernizr.canvas) {
+        alert('Your current browser doesnt support the HTML5 canvas function, using deFUME to visualize your data will not be optimal. Please update to the latest version of your browser');
+
+    }
+
+
+    if (!Modernizr.inputtypes.range) {
+        alert('Your browser doesnt support the HTML5 range function, using deFUME to visualize your data will not be optimal. Please update to the latest version of your browser');
+
+    }
+
+    if (!Modernizr.canvastext) {
+        alert('Your browser doesnt support the HTML5 canvastext function, using deFUME to visualize your data will not be optimal. Please update to the latest version of your browser');
+
+    }
+
+
+</script>
+
+<script type="text/javascript">
+
+
+
+
+var currentJSONFilename =  "{{ $results_path }}"; //Will be hardcode replaced by the CBS webface server
+
+
+if (currentJSONFilename.indexOf("results_path") !=-1) { //In case the page runs locally
+    console.log('CBS server didnt replace the rsults_path, going local mode');
+    var currentJSONFilename =  "HASH_PLACEHOLDER"; //Set JSONFILE to dummy file
+    var SERVERPREFIX = ''; //Set no serverprefix
+
+    var srcToLoad = [
+        "js/jquery-1.6.2.js",
+        "js/jquery-ui.min.js",
+        "js/grid.locale-en.js",
+        "js/jquery.jqGrid.src.js",
+        "js/drawFunctions.js",
+        "js/parseFunctions.js"
+
+
+    ];
+
+    var linkToLoad = [
+        "css/jquery-ui.css",
+        "css/ui.jqgrid.css"
+
+    ];
+
+    INTERPROLINK = "../tmp/" + currentJSONFilename+  "/interpro/";
+}
+else //In case running at the CBS server
+{
+    console.log('CBS server replaced the results_path so set the SERVERPREFFIX')
+    var SERVERPREFIX = "http://www.cbs.dtu.dk/services/deFUME/visual/"; //Set CBS serverprefix
+
+    var srcToLoad = [
+        "http://www.cbs.dtu.dk/services/deFUME/visual/js/jquery-1.6.2.js",
+        "http://www.cbs.dtu.dk/services/deFUME/visual/js/jquery-ui.min.js",
+        "http://www.cbs.dtu.dk/services/deFUME/visual/js/grid.locale-en.js",
+        "http://www.cbs.dtu.dk/services/deFUME/visual/js/jquery.jqGrid.src.js",
+        "http://www.cbs.dtu.dk/services/deFUME/visual/js/drawFunctions.js",
+        "http://www.cbs.dtu.dk/services/deFUME/visual/js/parseFunctions.js"
+
+
+
+    ];
+
+    var linkToLoad = [
+        "http://www.cbs.dtu.dk/services/deFUME/visual/css/jquery-ui.css",
+        "http://www.cbs.dtu.dk/services/deFUME/visual/css/ui.jqgrid.css"
+
+    ];
+//Fix the Filename if running on the CBS server (the whole URL is pushed instead of the hash)
+    var splitFilename = currentJSONFilename.split('/');
+//alert (splitFilename[9])
+    currentJSONFilename = splitFilename[9];
+    console.log('Loading in HASH: ' + currentJSONFilename);
+
+    INTERPROLINK = "http://www.cbs.dtu.dk/services/deFUME/tmp/" + currentJSONFilename+  "/interpro/";
+
+
+
+}
+console.log( "Using INTERPRO base link:" +  INTERPROLINK);
+
+
+
+console.log('Loading: ' + currentJSONFilename);
+//
+
+
+
+srcToLoad.forEach(function(entry) {
+    console.log(entry);
+    var script = document.createElement('script');
+    script.src = entry;
+    document.write(script.outerHTML);
+
+});
+
+linkToLoad.forEach(function(entry) {
+    console.log(entry);
+    var link = document.createElement('link');
+    link.href = entry;
+    link.rel="stylesheet"
+    link.type="text/css"
+    document.write(link.outerHTML);
+
+});
+
+///We need a script break here to load in all the source files
+</script>
+
+<script>
+
+
+///GLOBAL COUNTING VARS///////
+var ORFCOUNTER=0; //these vars are only to keep track of the amount of data in the set, they are not used!
+var IPCOUNTER=0;
+var CONTIGCOUNTER=0;
+var GOCOUNTER=0;
+
+
+///GLOBAL CONSTANTS/////
+var RESIZE;
+var GOLINK;
+var INTERPROLINK;
+RESIZE = 5;
+GOLINK = "http://www.ebi.ac.uk/QuickGO/GTerm?id=";
+
+
+/// GLOBAL ACCESSIBLE VARS ////
+var obj = 0;
+var startobj = 0;
+var actual_JSON = 0;
+
+var totalEntity = 0;
+var assembledReads = 0;
+var setLengthWarning = false;
+
+var TopParents = []; //Keeps the parental GO terms
+TopParents.MF = [];
+TopParents.BP = [];
+TopParents.CC = [];
+
+var warnedYet=false; //Keeps the status of the warning on big contig sizes
+
+/////////////////////////
+
+
+
+reloadGrid(currentJSONFilename); //Do a initial loading of the JSON file
+
+
+/// Start main loop
+$(function () {
+    'use strict';
+
+
+
+    var myData = {
+
+            },
+            $grid = $("#list");
+
+     /// Define the 3-level table structure
+    $grid.jqGrid({
+        /////////////////////////////////////
+        /// 1st level: CONTIG LEVEL GRID
+        /////////////////////////////////////
+        loadComplete: function () {
+
+            updateCanvas();//Only start writing the canvas inners AFTER teh whole grid, and the canvases are in the DOM
+
+
+        },
+
+        datatype: "local",
+        //data: myData.layout.chapters,
+        data: obj.Contig,
+        colNames: ["Assembly", "Reads", "Canvas", "Length", "id","Export"],
+        colModel: [
+            {name: "contig", width: 200, search: true, searchoptions: {sopt: ["cn"] }
+
+            },
+            {name: "readrow", width: 160, align: 'right', search: true, searchoptions: {sopt: ["cn"] }},
+            {name: "canvas", width: 600},
+            {name: "length", width: 40, sorttype: 'int', sortable: 'true', search: true  },
+            {name: "id", width: 30, key: true, hidden: true},
+            {name: "genbank", width: 50}
+
+        ],
+        rowNum: 3000,
+        ///rowList: [1, 10, 20],
+        pager: "#pager",
+        gridview: true,
+        ignoreCase: true,
+        rownumbers: false,
+        sortname: "contig",
+        viewrecords: true,
+        height: "100%",
+        subGrid: true,
+        shrinkToFit: false,
+        viewsortcols: [true, 'vertical', true],
+
+        subGridRowExpanded: function (subgridId, rowid) {
+
+            var subgridTableId = subgridId + "_t";
+
+
+            $("#" + subgridId).html("<table id='" + subgridTableId + "'></table>");
+
+            //alert(subgridTableId) //Debug point
+            $("#" + subgridTableId).jqGrid({
+                /////////////////////////////////////
+                /// 2nd level: ORF LEVEL SUBGRID
+                /////////////////////////////////////
+                datatype: "local",
+                caption: "Open Read Frames",
+                data: $(this).jqGrid("getLocalRow", rowid).ORF,
+                colNames: ["ORF", "start", "end", "Description", "E-value", "Coverage %","Hit id%", "Associate GO terms", "InterPro"],
+                colModel: [
+                    {name: "name", width: 30, key: true},
+
+                    {name: "start", width: 30, sorttype: 'int'},
+                    {name: "end", width: 30, sorttype: 'int'},
+                    {name: "h_desc", width: 520},
+                    {name: "eval", width: 50, sorttype: 'int'},
+                    {name: "len_perc", width: 60, sorttype: 'int'},
+                    {name: "perc", width: 45, sorttype: 'int'},
+                    {name: "MSGO", width: 180,sortable: 'false'},
+                    {name: "interpro", width: 45,sortable: 'false'}
+
+
+                ],
+                height: "100%",
+                rowNum: 20,
+                sortname: "id",
+                viewsortcols: [true, 'vertical', true],
+                expandOnLoad: true,
+                // idPrefix: "s_" + rowid + "_",
+                subGrid: true,
+                subGridRowExpanded: function (subgridId2, rowid2) {
+                    /////////////////////////////////////
+                    /// 3rd level: BLAST LEVEL SUBGRID
+                    /////////////////////////////////////
+                    var subgridTableId2 = subgridId2 + "_t";
+                    // alert(subgridTableId2);
+                    $("#" + subgridId2).html("<table id='" + subgridTableId2 + "'></table>");
+                    // alert(subgridId2) //Debug point
+                    $("#" + subgridTableId2).jqGrid({
+                        datatype: "local",
+                        data: $(this).jqGrid("getLocalRow", rowid2).BLAST,
+                        colNames: [ "Hit description", "E-value", "Coverage %" + "","Hit id%", "Length","Export", "h_id"],
+                        caption: "BLAST hits",
+
+                        colModel: [
+
+                            {name: "h_desc", width: 720},
+                            {name: "eval", width: 60, sorttype: 'int'},
+                            {name: "len_perc", width: 60, sorttype: 'int'},
+                            {name: "perc", width: 45, sorttype: 'int'},
+                            {name: "h_length", width: 40, sorttype: 'int'},
+                            {name: "fastalink", width: 40},
+                            // {name: "h_id", width: 40, key: true,hidden: true},
+                            {name: "idGen", key: true, hidden: true}
+
+
+                        ],
+                        multiselect: true,
+                        height: "100%",
+                        rowNum: 100,
+                        sortname: "eval"
+
+                        // idPrefix: "s_" + rowid + "_" + rowid2 + "_"
+                    });
+                }
+            });
+        }
+    });
+    $grid.jqGrid('filterToolbar', {
+        searchOperators: true,
+        searchOnEnter: false
+    });
+
+
+    $grid.jqGrid("navGrid", "#pager", {add: false, edit: false, del: false, "excel": true});
+    var subGridOptions = $grid.jqGrid("getGridParam", "subGridOptions"),
+            plusIcon = subGridOptions.plusicon,
+            minusIcon = subGridOptions.minusicon,
+            expandAllTitle = "Expand all subgrids",
+            collapseAllTitle = "Collapse all subgrids";
+    $("#jqgh_" + $grid[0].id + "_subgrid")
+            .html('<a style="cursor: pointer;"><span class="ui-icon ' + plusIcon + '" title="' + expandAllTitle + '"></span></a>')
+            .click(function () {
+                var $spanIcon = $(this).find(">a>span"),
+                        $body = $(this).closest(".ui-jqgrid-view")
+                                .find(">.ui-jqgrid-bdiv>div>.ui-jqgrid-btable>tbody");
+                if ($spanIcon.hasClass(plusIcon)) {
+                    $spanIcon.removeClass(plusIcon)
+                            .addClass(minusIcon)
+                            .attr("title", collapseAllTitle);
+                    $body.find(">tr.jqgrow>td.sgcollapsed")
+                            .click();
+                } else {
+                    $spanIcon.removeClass(minusIcon)
+                            .addClass(plusIcon)
+                            .attr("title", expandAllTitle);
+                    $body.find(">tr.jqgrow>td.sgexpanded")
+                            .click();
+                }
+            });
+
+   // $grid.jqGrid('navButtonAdd', '#pager', { caption: "Filter", title: "Toggle Searching Toolbar", buttonicon: 'ui-icon-pin-s', onClickButton: function () {
+   //     $grid[0].ess();
+   // }});
+
+
+
+    //This functions finds the selected BLAST hits and adds them to the selectedBLAST array.
+    //it also generates a button on the bottom pager
+
+    jQuery('#list').jqGrid('navButtonAdd', '#pager',
+            {caption: 'Collect all the selected BLAST hits',
+                title: 'Collect all the selected BLAST hits',
+                onClickButton: function () {
+
+                    var selectedBLAST = [];
+                    for (var i = 0; i < document.getElementsByClassName("ui-jqgrid-btable").length; i++) {
+
+                        for (var j = 0; j < $(document.getElementsByClassName("ui-jqgrid-btable")[i]).jqGrid('getGridParam', 'selarrrow').length; j++) {
+
+                            //console.log($(document.getElementsByClassName("ui-jqgrid-btable")[i]).jqGrid('getGridParam', 'selarrrow')[j]);
+                            selectedBLAST.push($(document.getElementsByClassName("ui-jqgrid-btable")[i]).jqGrid('getGridParam', 'selarrrow')[j]);
+
+                        }
+                    }
+
+
+                    postJSON(selectedBLAST);
+                }
+            });
+
+
+
+});
+
+</script>
+
+
+
+
+
+</head>
+<body>
+
+<BR>
+
+<div id="deFUMEtable">
+<table id="list">
+    <tr>
+        <td></td>
+    </tr>
+</table>
+</div>
+<div id="pager"></div>
+<span id="downloadcontainer"></span>
+
+<div id="setGO" value="">
+</div>
+
+<div id="fixedContainer">
+    <h1>deFUME analysis</h1>
+    <h3>Filtering options <a href="http://www.cbs.dtu.dk/services/deFUME/instructions.php#filter" target="_BLANK"><img src="http://www.cbs.dtu.dk/services/deFUME/visual/img/info.png" height="11" width="11" title="Learn more about filtering options"/></a></h3>
+    <input type="checkbox" id="setDrawBLAST" onclick="updateCanvas(currentJSONFilename)" checked> draw BLAST hits<canvas id="canvasBLAST" width="50" height="10" ></canvas></br/>
+    <input type="checkbox" id="setDrawInterpro" onclick="updateCanvas(currentJSONFilename)" checked> draw InterPro hits <canvas id="canvasInterpro" width="50" height="10" ></canvas></br/>
+    <input type="checkbox" id="setDrawReads" onclick="updateCanvas(currentJSONFilename)" checked> draw reads <canvas id="canvasReads" width="50" height="10" ></canvas></br/>
+    <input type="checkbox" id="setRemoveHypo" onclick="reloadGrid(currentJSONFilename)"> remove hypothetical proteins</br>
+
+    E-value: 10<sup>-200</sup><input type="range" id="setEvalRange" min="-200" max="-1" value="-1" onchange="reloadGrid(currentJSONFilename)" class="evalbox">10<sup>-1</sup>
+    Now: 10<sup><b id="currentEval">-1</b></sup><br>
+    <h3>Export <a href="http://www.cbs.dtu.dk/services/deFUME/instructions.php#export" target="_BLANK"><img src="http://www.cbs.dtu.dk/services/deFUME/visual/img/info.png" height="11" width="11" title="Learn more about the export options"/></a></h3>
+    <a href="php/gb.php" onclick="location.href=SERVERPREFIX + this.getAttribute('href')+'?JSONFilename=' + (currentJSONFilename); return false;">Download all contigs as GenBank</a><br>
+    <a href="php/fasta.php" onclick="location.href=SERVERPREFIX + this.getAttribute('href')+'?JSONFilename=' + (currentJSONFilename); return false;">Download all contigs as FASTA</a><br>
+    <a href="php/csv.php" onclick="location.href=SERVERPREFIX + this.getAttribute('href')+'?JSONFilename=' + (currentJSONFilename); return false;">Download all the data as Excel file (CSV)</a><br>
+    <h3>GO annotations <a href="http://www.cbs.dtu.dk/services/deFUME/instructions.php#GO" target="_BLANK"><img src="http://www.cbs.dtu.dk/services/deFUME/visual/img/info.png" height="11" width="11" title="Learn more about the export options"/></a></h3>
+
+    <B><div style="padding-left:3em">Molecular Function</div></B>
+    <div id="MF"></div>
+    <br>
+
+    <B><div style="padding-left:3em">Biological Process</div></B>
+    <div id="BP"></div>
+    <br>
+    <B><div style="padding-left:3em">Cellular Component</div></B>
+    <div id="CC"></div>
+   <!--- <button type="button" onclick="document.getElementById('setGO').setAttribute('category', '');document.getElementById('setGO').setAttribute('parent', '');reloadGrid(currentJSONFilename); drawGO();" >Reset GO filter</button> --->
+
+
+
+</div>
+
+<div id="dialog-confirm" title="deFUME has a question">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>The maximum length of some contigs exceeds the default length of 3000 bp, do you want deFUME to broaden the visualization window? This means scroll bars will appear, but you will be able to see all your data</p>
+</div>
+
+
+<script type="text/javascript">
+
+drawGO(); //Draw the GO term graph
+drawBLAST("BLAST",10,1000,6);
+drawRead("Reads",10,1000,8);
+drawInterPro("Interpro",10,1000,5);
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

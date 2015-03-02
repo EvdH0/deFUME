@@ -1,0 +1,247 @@
+# The servername field details what the server is called.
+# It is assumed that no other servers are called the same.
+servername: deFUME
+
+# The manager value determines which email is to be notified
+# of problems running the command. The email stated here
+# will rescieve reports of any runs failing. This value is
+# mandatory.
+manager: hmgh@cbs.dtu.dk
+
+# The command value states the absolute path to the
+# executable that is to be run with the posted data. This
+# value is mandatory. The executable needs to be
+# executable by the webserver. This is important since
+# webservers often executes cgi-programs with limited
+# rights (for security reasons).
+command: /usr/cbs/etc/wf/uniwrap-2.0
+#command: /usr/opt/www/webface/bin/myserver.pl
+
+# This option contains a fixed set og options always passed
+# to the server command when it is run.
+# The sting $JOBID is replaced with the actual jobid of
+# job, and can be used to track job temporary files
+# as well as use for unique filenames.
+options: -wrapprog /usr/cbs/bio/src/deFUME-1.0/deFUME.pl -w -j $JOBID -wraparch Linux.x86_64
+
+# The tmpdir value states what directory to use for
+# temporary files. The user running the webserver must
+# have write access to this directory. The directory is
+# placed relative to /usr/tmp/www/. This value is mandatory.
+tmpdir: deFUME
+
+# This value states what log file is to be used for logging
+# server usage. The logfile is placed relative to
+# /usr/opt/www/webface/log/. If no logfile is given, the server
+# produces no log.
+logfile: deFUME.log
+
+# This value states weather the options to the commandline
+# is to be written in the log as well.
+logoptions: yes
+
+# This value states weather the manager is to be mailed
+# every time the server is used, and with what options.
+# This is used to debug the setup of a server.
+debug: no
+
+# Several html files are configurable to be shown at
+# different times. Equal for all is that they have the
+# posibility of having variables substituted into them.
+# The following variables are available.
+#
+# $JOBID       ; the job identity. This value may also
+#                appear in the 'options' field in this file
+# $REFRESHTIME ; the time that it should wait until the
+#                calculation page should refresh itself.
+# $CGIPREFIX   ; URL prefix for the cgi-bin directory.
+# $EMAIL       ; substituted for
+#                'Email will be send to <b>(email)</b> when
+#                 the job finishes.'
+#                if the user submitted an email address.
+# $JOBMAX      ; maximal number of jobs in the queue
+# $JOBNUMBER   ; this jobs number in the queue.
+# $QUEUE       ; if debug: yes is set, this shows the queue,
+#                otherwise nothing.
+#                DO NOT LEAVE THIS ON FOR OPERATING SERVERS!
+
+# Only entries that are marked as fastafile or fastapaste
+# are counted, and the sum of number of sequences and
+# residues are logged. Other textareas or files are not
+# counted in the log. Examples of the use of these are given
+# in the files supplied with the distribution in the html/
+# directory.
+#
+
+# This is the path of the page to be shown, when the job
+# is calculating.
+# if not stated, the file webface.processing.html in
+# /usr/opt/www/webface/template/ is used.
+#calcpage: /usr/opt/www/webface/templates/statusajax.html
+
+# This is the path of the page to be shown, when the job is
+# queued. If not stated, the file webface.queue.html in
+# /usr/opt/www/webface/html/ is used.
+#queuepage: /usr/opt/www/webface/templates/statusajax.html
+
+# This is the path of the page to be shown, when the job has
+# expired. If not stated, the file webface.expired.html
+# in /usr/opt/www/webface/html/ is used.
+#expiredpage: /usr/opt/www/pub/CBS/services/myserver/expired.html
+
+#disabledpage: /usr/opt/www/webface/templates/disabled.html
+
+# This is the file that defines the parameters for the
+# queue. See later section for explanation of this file. If
+# not stated, no queue is used, and the server output is
+# piped directly to the user. The queue is located
+# relative to the directory /usr/opt/www/webface/queue/.
+queuefile: Linux.ia64.main
+
+# If set, this file is prepended before the output of the
+# output from the server execution is shown.
+# If not set, nothing is prepended the output
+#header: /usr/opt/www/pub/CBS/services/deFUME/header.html
+
+# If set, this file is appended after the output of the
+# output from the server execution is shown.
+#footer: /usr/opt/www/pub/CBS/services/deFUME/footer.html
+
+# The program will transform the posted data based on their
+# type, which is stated at the end of the configuration
+# file. For security reasons, the data is stripped of any
+# non-standard characters that might pose a security risk
+# before they are send to the server command as command
+# line options.
+#
+# You state the different input types, and the way they are
+# presented to the program in the end of the configuration
+# file.
+#
+# The first word of such a rule contains the input type
+# from the form. The type is not doublechecked, but the
+# type in the config file determines how the data is
+# presented to the server.
+#
+# The second word contain the ident used in the form in
+# the name="ident" field of the html entry.
+#
+# The third word is the option to use to specify the entry
+# to the program by some option. If the option EMPTY is
+# used, no option will be shown to the program, only the
+# value.
+#
+# The fourth word determine if a value is to be passed to
+# the server command from the input field. If VALUE is set,
+# the value is passed to the  server command. If the input
+# is a file, the filename is put instead of 'VALUE'. If it
+# is a text or other selection, the value will be quoted
+# from the value obtained from the form. If no value is
+# to be inserted, 'NOVALUE' is stated.
+#
+# If a default value is to be stated, if a field is left
+# empty, the fifth word should be 'default'. The sixth word
+# should be the default value.
+
+# A field of the form
+# <INPUT NAME="mytext" type="text">
+# where the text contents is presented to the program
+# after the option '-text'.
+#text mytext -text VALUE
+
+# A field of the form
+# <INPUT NAME="myfile" type="file">
+# where the name of a local file that containis the
+# submitted file of the form will be passed as a value
+# after the '-file' option.
+#file myfile -file VALUE
+
+# A field of the form
+# <TEXTAREA NAME="mytextarea"></TEXTAREA>
+# where the name of a local file that containis the
+# submitted text of the form will be passed as a value.
+#textarea mytextarea -texarea VALUE
+
+# A series of fields of the form
+# <INPUT NAME="myradio" type="radio" VALUE="val1">
+# ..
+# <INPUT NAME="myradio" type="radio" VALUE="valn">
+# where the selected raduobutton's value is given as
+# value.
+#radio myradio -radio VALUE
+
+# A field of the form
+# <INPUT NAME="mycheckbox" type="checkbox" VALUE="v1">
+# where v1 will be given as value if the checkbox is
+# checked.
+#checkbox mycheckbox -checkbox VALUE
+
+# A field of the form
+# <SELECT NAME="myselection" size="5">
+# <OPTION VALUE="1" SELECTED>One
+# <OPTION VALUE="2">Two
+# ...
+# <OPTION VALUE="10">Ten
+# </SELECT>
+# Where the selceted value (1,2 .. or 10) is used as value
+# for the program
+#selectionbox myselection -selection VALUE
+
+# A field of the form
+# <SELECT NAME="myselection">
+# <OPTION VALUE="1" SELECTED>One
+# <OPTION VALUE="2">Two
+# ...
+# <OPTION VALUE="10">Ten
+# </SELECT>
+# Where the selceted values (1,2 .. and 10) is stated, comma
+# seperated as value for the program (example "1,3,6").
+#mselectionbox mymultselection -mselection VALUE
+
+# A field of the form
+# <SELECT NAME="myselection" size="5">
+# <OPTION VALUE="1" SELECTED>One
+# <OPTION VALUE="2">Two
+# ...
+# <OPTION VALUE="10">Ten
+# </SELECT>
+# Where the selceted value (1,2 .. or 10) is used as value
+# for the program
+#pulldown mypulldown -pulldown VALUE
+
+# A field of the form
+# <INPUT NAME="myfastafile" type="file">
+# where the name of a local file that contains the
+# submitted file of the form will be passed as a value
+# after the '-file' option. option '-nofile' will be
+# used if no file is posted. The file posted is assumed
+# to be a FASTA file, and is reformatted accordingly.
+# Also this sequences are parsed, and counted for
+# logging purposes.
+#fastafile myfastafile -fasta VALUE default -nofasta
+
+# Two fields of the form
+# <INPUT NAME="myfsaname" type="text">
+# <TEXTAREA NAME="myfsaseq"></TEXTAREA>
+# where the name of a local file that containis a
+# fasta file, that is build from the contents of the
+# fields.The sequences are parsed, and counted for
+# logging purposes.
+#fastapaste myfsaname,myfsaseq -paste VALUE default -nopaste
+
+# Note that a default entry of the following form
+# fastapaste SEQNAME,SEQ EMPTY VALUE
+# is always assumed for compatability reasons.
+
+# TYPE		NAME		OPTION		VAL	DEFAULT	DEFAULTVALUE [ FILTER filter ]
+checkbox        TEST            -T              NOVALUE   default
+file            ABSUB           -g              VALUE   default
+fastapaste      VESEQ,VEPASTE   -m              VALUE   default FILTER maxseq;100;maxres;9000
+fastafile       VESUB           -m		VALUE	default FILTER maxseq;100;maxres;9000
+fastapaste      NUSEQ,NUPASTE   -i              VALUE   default FILTER maxseq;250;maxres;9000
+fastafile       NUSUB           -i		VALUE	default FILTER maxseq;250;maxres;9000
+text            EMAIL           -u              VALUE   default
+text            FWDPRIMER       -f              VALUE   default
+text            REVPRIMER       -r              VALUE   default
+text            ERRORRATE       -Q              VALUE   default
+radio		group1		-		NOVALUE	default
